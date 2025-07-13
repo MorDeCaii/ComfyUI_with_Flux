@@ -239,7 +239,7 @@ COPY --chmod=755 disable_mixlab.sh /disable_mixlab.sh
 
 # ComfyUI-S3-Save-Node
 RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/georgitsenov/ComfyUI-R2.git && \
+    git clone https://github.com/MorDeCaii/ComfyUI-R2.git && \
     cd ComfyUI-R2 && \
     pip3 install -r requirements.txt
 
