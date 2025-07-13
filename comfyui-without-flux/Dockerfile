@@ -60,6 +60,12 @@ EXPOSE 8188
 # Download and move flux_dev_example.png
 RUN wget "https://github.com/comfyanonymous/ComfyUI_examples/blob/master/flux/flux_dev_example.png" -P /ComfyUI
 
+# Install ComfyUI-S3-Save-Node
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/MorDeCaii/ComfyUI-R2.git && \
+    cd ComfyUI-R2 && \
+    pip3 install -r requirements.txt
+
 # Install Xlabs-AI/flux-RealismLora
 RUN apt-get install -y libgl1-mesa-glx libglib2.0-0
 RUN cd /ComfyUI/custom_nodes && \
@@ -236,12 +242,6 @@ COPY --chmod=755 disable_mixlab.sh /disable_mixlab.sh
 #     git clone https://github.com/kijai/ComfyUI-CogVideoXWrapper.git && \
 #     cd ComfyUI-CogVideoXWrapper && \
 #     pip3 install -r requirements.txt
-
-# ComfyUI-S3-Save-Node
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/MorDeCaii/ComfyUI-R2.git && \
-    cd ComfyUI-R2 && \
-    pip3 install -r requirements.txt
 
 # AI-Toolkit
 RUN cd / && \
